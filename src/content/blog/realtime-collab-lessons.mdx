@@ -1,0 +1,19 @@
+# Realtime Collaboration Lessons from KanbanSync
+
+Building realtime apps taught me that **correctness and UX must move together**.
+
+## What Worked Well
+
+- Event names mapped to user intent, not only backend state.
+- Optimistic updates for immediate feedback.
+- Server reconciliation for eventual consistency.
+
+## Common Pitfalls
+
+- Duplicate events causing UI jitter.
+- Missing idempotency on write operations.
+- Weak conflict handling in shared lists.
+
+## My Rule
+
+If a user can trigger an action quickly multiple times, the backend path should be idempotent and the frontend should gracefully merge updates.

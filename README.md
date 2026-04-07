@@ -4,7 +4,7 @@ A modern, responsive personal portfolio built with Next.js, TypeScript, Tailwind
 
 ## Live Link
 
-- Add your deployed link here: https://your-live-link.example
+- Add your deployed link here: https://portfolio-tau-ten-7qs60ajfcs.vercel.app/
 
 ## Core Features
 
@@ -36,31 +36,3 @@ A modern, responsive personal portfolio built with Next.js, TypeScript, Tailwind
 - src/components: Portfolio sections and UI components
 - src/data/projects.ts: Centralized project content data
 - src/app/globals.css: Global styling, cursor, and background effects
-
-## Run Locally
-
-1. Install dependencies:
-
-	npm install
-
-2. Start development server:
-
-	npm run dev
-
-3. Open:
-
-	http://localhost:3000
-
-## Production Commands
-
-- Build: npm run build
-- Start production server: npm run start
-- Lint: npm run lint
-
-## Assignment Compliance Snapshot
-
-- 12/12 task requirements implemented in the codebase
-- Dedicated project details pages included as required
-- Responsive layout and consistent branding across sections
-
-See SUBMISSION_CHECKLIST.md for a one-page submission checklist.

@@ -1,0 +1,21 @@
+# System Design Tradeoffs I Use In Real Projects
+
+When I design systems, I focus on **three constraints** first:
+
+1. How fast can I ship value?
+2. How safely can I scale traffic?
+3. How easy is this for future maintainers?
+
+## My Practical Approach
+
+I start with a simple architecture that is modular enough to evolve.
+
+- Keep domain boundaries clear.
+- Optimize high-traffic paths, not everything.
+- Add observability early: logging, error traces, and request metrics.
+
+## Example Tradeoff
+
+For authentication and role checks, I often choose straightforward server-side validation first, then add cache and policy optimization after usage patterns become clear.
+
+That keeps early delivery fast while preserving a path to stronger scale.
