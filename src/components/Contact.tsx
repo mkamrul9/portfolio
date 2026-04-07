@@ -56,7 +56,8 @@ export default function Contact() {
     };
 
     return (
-        <section id="contact" className="overflow-hidden bg-zinc-900 py-24">
+        <section id="contact" className="relative overflow-hidden bg-zinc-800 py-24">
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,rgba(34,211,238,0.08),transparent_30%)]" />
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}

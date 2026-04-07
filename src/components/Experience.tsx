@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { Briefcase, Calendar } from "lucide-react";
 
 export default function Experience() {
@@ -19,18 +22,38 @@ export default function Experience() {
     ];
 
     return (
-        <section id="experience" className="bg-zinc-950 py-20">
+        <section id="experience" className="relative bg-zinc-950 py-24">
             <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-                <div className="mb-16 text-center">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="mb-16 text-center"
+                >
                     <h2 className="text-3xl font-extrabold text-zinc-100 sm:text-4xl">
                         Professional <span className="text-cyan-400">Experience</span>
                     </h2>
                     <div className="mx-auto mt-2 h-1 w-24 rounded-full bg-cyan-400"></div>
-                </div>
+                </motion.div>
 
-                <div className="space-y-8">
-                    {experiences.map((exp) => (
-                        <div key={exp.role} className="relative pl-8 md:pl-0">
+                <div className="relative space-y-8">
+                    <motion.div
+                        initial={{ scaleY: 0 }}
+                        whileInView={{ scaleY: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        className="absolute top-0 left-3 h-full w-px origin-top bg-zinc-700 md:left-1/2"
+                    />
+                    {experiences.map((exp, idx) => (
+                        <motion.div
+                            key={exp.role}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: idx * 0.1 }}
+                            className="relative pl-10 md:pl-0"
+                        >
+                            <span className="absolute top-7 left-1 h-4 w-4 rounded-full border-2 border-cyan-400 bg-zinc-950 md:left-1/2 md:-translate-x-1/2" />
                             <div className="group items-start justify-between rounded-2xl border border-zinc-800 bg-zinc-900 p-6 transition-shadow hover:shadow-md hover:shadow-cyan-500/10 md:flex">
                                 <div className="flex-1">
                                     <div className="mb-2 flex items-center gap-2">
@@ -51,7 +74,7 @@ export default function Experience() {
                                     {exp.duration}
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
             </div>

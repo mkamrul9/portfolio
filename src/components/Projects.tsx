@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { ExternalLink, FolderGit2, Info, X } from "lucide-react";
+import { motion } from "framer-motion";
 
 type Project = {
     id: number;
@@ -120,9 +121,14 @@ export default function Projects() {
                 </div>
 
                 <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-                    {projectData.map((project) => (
-                        <div
+                    {projectData.map((project, idx) => (
+                        <motion.div
                             key={project.id}
+                            initial={{ opacity: 0, y: 24 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: idx * 0.08 }}
+                            whileHover={{ y: -8 }}
                             className="flex flex-col overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950 shadow-sm transition-all hover:shadow-xl hover:shadow-cyan-500/10"
                         >
                             <div className="relative h-48 w-full overflow-hidden bg-zinc-800">
@@ -141,14 +147,15 @@ export default function Projects() {
                                 <p className="mb-6 line-clamp-3 flex-1 text-zinc-400">
                                     {project.description}
                                 </p>
-                                <button
+                                <motion.button
+                                    whileTap={{ scale: 0.98 }}
                                     onClick={() => setSelectedProject(project)}
                                     className="w-full rounded-xl bg-zinc-800 py-3 font-medium text-cyan-300 transition-colors hover:bg-cyan-400 hover:text-zinc-950"
                                 >
                                     View More / Details
-                                </button>
+                                </motion.button>
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
 

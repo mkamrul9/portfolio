@@ -1,42 +1,66 @@
 "use client";
 
 import { motion } from "framer-motion";
+import {
+    SiAxios,
+    SiCloudinary,
+    SiDocker,
+    SiExpress,
+    SiFramer,
+    SiGit,
+    SiGithub,
+    SiJsonwebtokens,
+    SiMongodb,
+    SiNextdotjs,
+    SiNodedotjs,
+    SiPostgresql,
+    SiPrisma,
+    SiReact,
+    SiShadcnui,
+    SiSocketdotio,
+    SiStripe,
+    SiTailwindcss,
+    SiTypescript,
+    SiZod,
+} from "react-icons/si";
+import { FaLayerGroup } from "react-icons/fa6";
 
 export default function Skills() {
     const skillCategories = [
         {
             title: "Frontend Magic",
             skills: [
-                "React.js",
-                "Next.js",
-                "TypeScript",
-                "Tailwind CSS",
-                "Shadcn UI",
-                "TanStack Query",
-                "Framer Motion",
+                { name: "React.js", icon: SiReact },
+                { name: "Next.js", icon: SiNextdotjs },
+                { name: "TypeScript", icon: SiTypescript },
+                { name: "Tailwind CSS", icon: SiTailwindcss },
+                { name: "Shadcn UI", icon: SiShadcnui },
+                { name: "TanStack Query", icon: FaLayerGroup },
+                { name: "Framer Motion", icon: SiFramer },
             ],
         },
         {
             title: "Backend Power",
             skills: [
-                "Node.js",
-                "Express.js",
-                "PostgreSQL",
-                "Prisma ORM",
-                "REST APIs",
-                "Socket.io",
+                { name: "Node.js", icon: SiNodedotjs },
+                { name: "Express.js", icon: SiExpress },
+                { name: "PostgreSQL", icon: SiPostgresql },
+                { name: "Prisma ORM", icon: SiPrisma },
+                { name: "Zod", icon: SiZod },
+                { name: "Socket.io", icon: SiSocketdotio },
             ],
         },
         {
             title: "Architecture & Tools",
             skills: [
-                "BetterAuth",
-                "JWT & Session",
-                "RBAC",
-                "Stripe",
-                "Cloudinary",
-                "Docker",
-                "Git & GitHub",
+                { name: "JWT", icon: SiJsonwebtokens },
+                { name: "Stripe", icon: SiStripe },
+                { name: "Cloudinary", icon: SiCloudinary },
+                { name: "Docker", icon: SiDocker },
+                { name: "Git", icon: SiGit },
+                { name: "GitHub", icon: SiGithub },
+                { name: "Axios", icon: SiAxios },
+                { name: "MongoDB", icon: SiMongodb },
             ],
         },
     ];
@@ -44,8 +68,10 @@ export default function Skills() {
     return (
         <section
             id="skills"
-            className="overflow-hidden border-t border-zinc-800 bg-zinc-950 py-24"
+            className="relative overflow-hidden border-t border-zinc-800 bg-zinc-950 py-24"
         >
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_10%_20%,rgba(34,211,238,0.16),transparent_32%),radial-gradient(circle_at_90%_80%,rgba(59,130,246,0.14),transparent_36%)]" />
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(161,161,170,0.12)_1px,transparent_1px),linear-gradient(90deg,rgba(161,161,170,0.12)_1px,transparent_1px)] bg-size-[36px_36px] opacity-25" />
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -80,17 +106,18 @@ export default function Skills() {
                             <div className="flex flex-wrap justify-center gap-3">
                                 {category.skills.map((skill) => (
                                     <motion.span
-                                        key={skill}
+                                        key={skill.name}
                                         whileHover={{
-                                            scale: 1.15,
-                                            rotate: [-2, 2, -2, 0],
+                                            scale: 1.08,
+                                            rotate: 2,
                                             backgroundColor: "#22d3ee",
                                             color: "#09090b",
                                         }}
-                                        transition={{ type: "spring", stiffness: 300 }}
-                                        className="cursor-pointer rounded-xl border border-cyan-500/30 bg-zinc-800 px-5 py-2.5 text-sm font-bold text-cyan-300 shadow-sm"
+                                        transition={{ type: "tween", duration: 0.18 }}
+                                        className="flex cursor-pointer items-center gap-2 rounded-xl border border-cyan-500/30 bg-zinc-800 px-4 py-2.5 text-sm font-bold text-cyan-300 shadow-sm"
                                     >
-                                        {skill}
+                                        <skill.icon size={14} />
+                                        {skill.name}
                                     </motion.span>
                                 ))}
                             </div>
