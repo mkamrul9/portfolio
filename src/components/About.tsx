@@ -18,7 +18,7 @@ export default function About() {
                             Hello! My programming journey started with a deep curiosity
                             about how things work on the web. Today, I am an
                             8th-semester, 4th-year student at <strong>Rajshahi
-                            University of Engineering and Technology (RUET)</strong>,
+                                University of Engineering and Technology (RUET)</strong>,
                             studying Electrical &amp; Computer Engineering (ECE).
                         </p>
                         <p>
@@ -33,7 +33,7 @@ export default function About() {
                             When I&apos;m not writing code or studying for my ECE courses,
                             you can usually find me on the <strong>football</strong>
                             field enjoying a good match, or tending to my <strong>
-                            rooftop garden</strong>, where I grow a variety of plants
+                                rooftop garden</strong>, where I grow a variety of plants
                             and find a great sense of peace.
                         </p>
                     </div>
