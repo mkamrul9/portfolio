@@ -1,5 +1,7 @@
 import About from "@/components/About";
+import Contact from "@/components/Contact";
 import Experience from "@/components/Experience";
+import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import Projects from "@/components/Projects";
@@ -14,10 +16,8 @@ export default function Home() {
       <Skills />
       <Projects />
       <Experience />
-      <section
-        id="contact"
-        className="min-h-screen border-t border-gray-200 bg-white"
-      />
+      <Contact />
+      <Footer />
     </main>
   );
 }
