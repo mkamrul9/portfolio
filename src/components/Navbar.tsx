@@ -20,12 +20,12 @@ export default function Navbar() {
 
     return (
         <nav className="fixed top-0 z-50 w-full border-b border-zinc-800/90 bg-zinc-950/80 shadow-sm backdrop-blur-md">
-            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(34,211,238,0.12),transparent_30%,transparent_70%,rgba(59,130,246,0.12))]" />
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(168,85,247,0.16),transparent_30%,transparent_70%,rgba(217,70,239,0.14))]" />
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="flex h-16 items-center justify-between">
                     <motion.div
                         whileHover={{ scale: 1.04 }}
-                        className="relative shrink-0 rounded-full border border-cyan-400/30 bg-zinc-900 px-4 py-1 text-2xl font-bold text-cyan-400"
+                        className="relative shrink-0 rounded-full border border-violet-400/30 bg-zinc-900 px-4 py-1 text-2xl font-bold text-violet-400"
                     >
                         KI.
                     </motion.div>
@@ -39,13 +39,13 @@ export default function Navbar() {
                                     className={`relative rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
                                         active === link.href
                                             ? "text-zinc-950"
-                                            : "text-zinc-300 hover:text-cyan-300"
+                                            : "text-zinc-300 hover:text-violet-300"
                                     }`}
                                 >
                                     {active === link.href && (
                                         <motion.span
                                             layoutId="nav-pill"
-                                            className="absolute inset-0 -z-10 rounded-full bg-cyan-400"
+                                            className="absolute inset-0 -z-10 rounded-full bg-violet-400"
                                             transition={{ type: "spring", stiffness: 350, damping: 30 }}
                                         />
                                     )}
@@ -58,7 +58,7 @@ export default function Navbar() {
                     <div className="flex items-center md:hidden">
                         <button
                             onClick={() => setIsOpen(!isOpen)}
-                            className="text-zinc-300 hover:text-cyan-400 focus:outline-none"
+                            className="text-zinc-300 hover:text-violet-300 focus:outline-none"
                             aria-label="Toggle menu"
                         >
                             {isOpen ? <X size={28} /> : <Menu size={28} />}
@@ -82,7 +82,7 @@ export default function Navbar() {
                                     setActive(link.href);
                                     setIsOpen(false);
                                 }}
-                                className="block px-3 py-2 text-lg font-medium text-zinc-300 hover:text-cyan-400"
+                                className="block px-3 py-2 text-lg font-medium text-zinc-300 hover:text-violet-300"
                             >
                                 {link.name}
                             </Link>

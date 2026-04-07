@@ -6,6 +6,13 @@ import { Briefcase, Calendar } from "lucide-react";
 export default function Experience() {
     const experiences = [
         {
+            role: "Frontend & Product Contributor",
+            company: "GenZSBD (4-Person Team)",
+            duration: "2026",
+            description:
+                "Worked in a team of 4 people to build a games leaderboard experience for GenZSBD, focusing on ranking UI, user flow, and integration logic.",
+        },
+        {
             role: "Open Source Contributor",
             company: "OWASP Foundation",
             duration: "Recent",
@@ -31,9 +38,9 @@ export default function Experience() {
                     className="mb-16 text-center"
                 >
                     <h2 className="text-3xl font-extrabold text-zinc-100 sm:text-4xl">
-                        Professional <span className="text-cyan-400">Experience</span>
+                        Professional <span className="text-violet-400">Experience</span>
                     </h2>
-                    <div className="mx-auto mt-2 h-1 w-24 rounded-full bg-cyan-400"></div>
+                    <div className="mx-auto mt-2 h-1 w-24 rounded-full bg-violet-400"></div>
                 </motion.div>
 
                 <div className="relative space-y-8">
@@ -53,16 +60,16 @@ export default function Experience() {
                             transition={{ delay: idx * 0.1 }}
                             className="relative pl-10 md:pl-0"
                         >
-                            <span className="absolute top-7 left-1 h-4 w-4 rounded-full border-2 border-cyan-400 bg-zinc-950 md:left-1/2 md:-translate-x-1/2" />
-                            <div className="group items-start justify-between rounded-2xl border border-zinc-800 bg-zinc-900 p-6 transition-shadow hover:shadow-md hover:shadow-cyan-500/10 md:flex">
+                            <span className="absolute top-7 left-1 h-4 w-4 rounded-full border-2 border-violet-400 bg-zinc-950 md:left-1/2 md:-translate-x-1/2" />
+                            <div className="group items-start justify-between rounded-2xl border border-zinc-800 bg-zinc-900 p-6 transition-shadow hover:shadow-md hover:shadow-violet-500/10 md:flex">
                                 <div className="flex-1">
                                     <div className="mb-2 flex items-center gap-2">
-                                        <Briefcase className="text-cyan-400" size={20} />
+                                        <Briefcase className="text-violet-400" size={20} />
                                         <h3 className="text-xl font-bold text-zinc-100">
                                             {exp.role}
                                         </h3>
                                     </div>
-                                    <h4 className="mb-4 text-lg font-medium text-cyan-300">
+                                    <h4 className="mb-4 text-lg font-medium text-violet-300">
                                         {exp.company}
                                     </h4>
                                     <p className="leading-relaxed text-zinc-400">

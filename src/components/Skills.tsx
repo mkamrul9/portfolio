@@ -70,7 +70,7 @@ export default function Skills() {
             id="skills"
             className="relative overflow-hidden border-t border-zinc-800 bg-zinc-950 py-24"
         >
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_10%_20%,rgba(34,211,238,0.16),transparent_32%),radial-gradient(circle_at_90%_80%,rgba(59,130,246,0.14),transparent_36%)]" />
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_10%_20%,rgba(168,85,247,0.2),transparent_32%),radial-gradient(circle_at_90%_80%,rgba(217,70,239,0.16),transparent_36%)]" />
             <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(161,161,170,0.12)_1px,transparent_1px),linear-gradient(90deg,rgba(161,161,170,0.12)_1px,transparent_1px)] bg-size-[36px_36px] opacity-25" />
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <motion.div
@@ -82,11 +82,11 @@ export default function Skills() {
                 >
                     <h2 className="text-4xl font-extrabold tracking-tight text-zinc-100 sm:text-5xl">
                         Technical{" "}
-                        <span className="bg-linear-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                        <span className="bg-linear-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent">
                             Arsenal
                         </span>
                     </h2>
-                    <div className="mx-auto mt-4 h-1.5 w-24 rounded-full bg-cyan-400"></div>
+                    <div className="mx-auto mt-4 h-1.5 w-24 rounded-full bg-violet-400"></div>
                 </motion.div>
 
                 <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
@@ -110,11 +110,11 @@ export default function Skills() {
                                         whileHover={{
                                             scale: 1.08,
                                             rotate: 2,
-                                            backgroundColor: "#22d3ee",
+                                            backgroundColor: "#c084fc",
                                             color: "#09090b",
                                         }}
                                         transition={{ type: "tween", duration: 0.18 }}
-                                        className="flex cursor-pointer items-center gap-2 rounded-xl border border-cyan-500/30 bg-zinc-800 px-4 py-2.5 text-sm font-bold text-cyan-300 shadow-sm"
+                                        className="flex cursor-pointer items-center gap-2 rounded-xl border border-violet-500/30 bg-zinc-800 px-4 py-2.5 text-sm font-bold text-violet-300 shadow-sm"
                                     >
                                         <skill.icon size={14} />
                                         {skill.name}
