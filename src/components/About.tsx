@@ -51,10 +51,6 @@ export default function About() {
                                 LeetCode problems</strong> and consistent algorithmic
                             practice.
                         </p>
-                        <p>
-                            Built and published <strong>streamshare-cli</strong> on npm,
-                            showing practical experience shipping developer tooling.
-                        </p>
                     </motion.div>
 
                     <motion.div

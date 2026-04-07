@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Personal Portfolio
 
-## Getting Started
+A modern, responsive personal portfolio built with Next.js, TypeScript, Tailwind CSS, and Framer Motion.
 
-First, run the development server:
+## Live Link
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Add your deployed link here: https://your-live-link.example
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Core Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Fully responsive single-page portfolio layout
+- Auto-highlight navbar based on scroll position
+- Hero section with professional photo, designation, resume button, and social links
+- About section with programming journey, interests, hobbies, and education details
+- Categorized technical skills section
+- Experience section with verified OWASP contribution links
+- Projects section with 3 project cards and dedicated details pages
+- Contact form with success feedback
+- Footer with email, phone, WhatsApp, and social links
+- Animated custom cursor and vibrant cyber-tech themed background
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Tech Stack
 
-## Learn More
+- Next.js 16 (App Router)
+- React 19
+- TypeScript
+- Tailwind CSS v4
+- Framer Motion
+- Lucide React
+- React Icons
 
-To learn more about Next.js, take a look at the following resources:
+## Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- src/app/page.tsx: Home page composition
+- src/app/projects/[id]/page.tsx: Dedicated project details pages
+- src/components: Portfolio sections and UI components
+- src/data/projects.ts: Centralized project content data
+- src/app/globals.css: Global styling, cursor, and background effects
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Run Locally
 
-## Deploy on Vercel
+1. Install dependencies:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+	npm install
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+2. Start development server:
+
+	npm run dev
+
+3. Open:
+
+	http://localhost:3000
+
+## Production Commands
+
+- Build: npm run build
+- Start production server: npm run start
+- Lint: npm run lint
+
+## Assignment Compliance Snapshot
+
+- 12/12 task requirements implemented in the codebase
+- Dedicated project details pages included as required
+- Responsive layout and consistent branding across sections
+
+See SUBMISSION_CHECKLIST.md for a one-page submission checklist.

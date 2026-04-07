@@ -12,6 +12,7 @@ const NAV_LINKS = [
     { name: "Projects", href: "#projects" },
     { name: "Experience", href: "#experience" },
     { name: "Contact", href: "#contact" },
+    { name: "Blog", href: "#blog" },
 ];
 
 export default function Navbar() {
@@ -20,9 +21,6 @@ export default function Navbar() {
 
     useEffect(() => {
         const sectionIds = NAV_LINKS.map((link) => link.href.slice(1));
-        const sections = sectionIds
-            .map((id) => document.getElementById(id))
-            .filter((el): el is HTMLElement => el !== null);
 
         const syncFromHash = () => {
             if (window.location.hash) {
@@ -30,38 +28,35 @@ export default function Navbar() {
             }
         };
 
-        syncFromHash();
-        window.addEventListener("hashchange", syncFromHash);
+        const updateActiveByScroll = () => {
+            const scrollY = window.scrollY;
+            const offset = 120;
 
-        if (!sections.length) {
-            return () => window.removeEventListener("hashchange", syncFromHash);
-        }
-
-        const observer = new IntersectionObserver(
-            (entries) => {
-                const visibleEntries = entries.filter((entry) => entry.isIntersecting);
-                if (!visibleEntries.length) {
-                    return;
+            let current = "#home";
+            for (const id of sectionIds) {
+                const section = document.getElementById(id);
+                if (!section) {
+                    continue;
                 }
 
-                const topVisible = visibleEntries.sort(
-                    (a, b) => b.intersectionRatio - a.intersectionRatio,
-                )[0];
-                setActive(`#${topVisible.target.id}`);
-            },
-            {
-                root: null,
-                rootMargin: "-30% 0px -55% 0px",
-                threshold: [0.2, 0.35, 0.5, 0.7],
-            },
-        );
+                if (scrollY >= section.offsetTop - offset) {
+                    current = `#${id}`;
+                }
+            }
 
-        sections.forEach((section) => observer.observe(section));
+            setActive(current);
+        };
+
+        syncFromHash();
+        updateActiveByScroll();
+        window.addEventListener("hashchange", syncFromHash);
+        window.addEventListener("scroll", updateActiveByScroll, { passive: true });
+        window.addEventListener("resize", updateActiveByScroll);
 
         return () => {
-            sections.forEach((section) => observer.unobserve(section));
-            observer.disconnect();
             window.removeEventListener("hashchange", syncFromHash);
+            window.removeEventListener("scroll", updateActiveByScroll);
+            window.removeEventListener("resize", updateActiveByScroll);
         };
     }, []);
 

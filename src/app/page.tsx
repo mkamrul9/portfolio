@@ -1,8 +1,8 @@
 "use client";
 
 import About from "@/components/About";
+import BlogComingSoon from "@/components/BlogComingSoon";
 import Contact from "@/components/Contact";
-import CustomCursor from "@/components/CustomCursor";
 import Experience from "@/components/Experience";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
@@ -20,12 +20,12 @@ export default function Home() {
     <Projects key="projects" />,
     <Experience key="experience" />,
     <Contact key="contact" />,
+    <BlogComingSoon key="blog" />,
     <Footer key="footer" />,
   ];
 
   return (
     <main className="scroll-smooth">
-      <CustomCursor />
       <Navbar />
       {sections.map((section, idx) => (
         <motion.div

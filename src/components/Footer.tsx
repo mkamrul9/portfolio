@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { SiCodeforces, SiGithub, SiLeetcode, SiNpm } from "react-icons/si";
 import { FaFacebookF, FaLinkedinIn } from "react-icons/fa6";
-import { Mail, Phone } from "lucide-react";
+import { Mail, MessageCircle, Phone } from "lucide-react";
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();
@@ -72,6 +72,15 @@ export default function Footer() {
                         >
                             <Mail size={12} />
                             mdkamrulislam.dev@gmail.com
+                        </a>
+                        <a
+                            href="https://wa.me/8801736635727"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 rounded-full border border-zinc-700 bg-zinc-900 px-3 py-1.5 text-zinc-300 transition-colors hover:border-violet-400/40 hover:text-violet-300"
+                        >
+                            <MessageCircle size={12} />
+                            WhatsApp
                         </a>
                     </div>
 
