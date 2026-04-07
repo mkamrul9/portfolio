@@ -3,8 +3,10 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Briefcase, Code, Download, FolderGit2, Users } from "lucide-react";
+import { Download } from "lucide-react";
 import { motion } from "framer-motion";
+import { FaFacebookF, FaLinkedinIn } from "react-icons/fa6";
+import { SiGithub, SiLeetcode } from "react-icons/si";
 
 export default function Hero() {
     const containerVariants = {
@@ -30,8 +32,8 @@ export default function Hero() {
             className="flex min-h-screen items-center justify-center overflow-hidden bg-zinc-950 pt-20"
         >
             <div className="relative mx-auto flex max-w-7xl flex-col-reverse items-center gap-12 px-4 sm:px-6 lg:flex-row lg:px-8">
-                <div className="animate-blob absolute top-20 left-10 h-72 w-72 rounded-full bg-cyan-500 opacity-20 blur-2xl"></div>
-                <div className="animate-blob animation-delay-2000 absolute top-20 right-10 h-72 w-72 rounded-full bg-blue-500 opacity-20 blur-2xl"></div>
+                <div className="animate-blob absolute top-20 left-10 h-72 w-72 rounded-full bg-violet-400 opacity-20 blur-2xl"></div>
+                <div className="animate-blob animation-delay-2000 absolute top-20 right-10 h-72 w-72 rounded-full bg-fuchsia-400 opacity-20 blur-2xl"></div>
 
                 <motion.div
                     className="z-10 flex-1 text-center md:text-left"
@@ -41,7 +43,7 @@ export default function Hero() {
                 >
                     <motion.h2
                         variants={itemVariants}
-                        className="mb-3 font-bold tracking-widest text-cyan-400 uppercase"
+                        className="mb-3 font-bold tracking-widest text-violet-200 uppercase"
                     >
                         Welcome to my universe
                     </motion.h2>
@@ -50,7 +52,7 @@ export default function Hero() {
                         className="mb-4 text-5xl font-extrabold tracking-tight text-zinc-100 md:text-7xl"
                     >
                         Hi, I&apos;m{" "}
-                        <span className="bg-linear-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                        <span className="bg-linear-to-r from-violet-300 via-violet-400 to-fuchsia-400 bg-clip-text text-transparent">
                             Kamrul Islam
                         </span>
                     </motion.h1>
@@ -76,12 +78,12 @@ export default function Hero() {
                         <motion.a
                             whileHover={{
                                 scale: 1.05,
-                                boxShadow: "0px 10px 20px rgba(34, 211, 238, 0.25)",
+                                boxShadow: "0px 10px 20px rgba(168, 85, 247, 0.28)",
                             }}
                             whileTap={{ scale: 0.95 }}
                             href="/Resumemarch.pdf"
                             download="Resumemarch.pdf"
-                            className="flex items-center gap-2 rounded-full bg-linear-to-r from-cyan-500 to-blue-500 px-8 py-4 font-bold text-zinc-950 transition-all"
+                            className="flex items-center gap-2 rounded-full bg-linear-to-r from-violet-400 to-fuchsia-400 px-8 py-4 font-bold text-zinc-950 transition-all"
                         >
                             <Download size={22} />
                             Download Resume
@@ -89,7 +91,7 @@ export default function Hero() {
                         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                             <Link
                                 href="#contact"
-                                className="inline-block rounded-full border-2 border-zinc-700 px-8 py-4 font-bold text-zinc-200 transition-colors hover:border-cyan-400 hover:text-cyan-400"
+                                className="inline-block rounded-full border-2 border-violet-400/35 px-8 py-4 font-bold text-zinc-200 transition-colors hover:border-violet-400 hover:text-violet-200"
                             >
                                 Contact Me
                             </Link>
@@ -98,29 +100,26 @@ export default function Hero() {
 
                     <motion.div
                         variants={itemVariants}
-                        className="flex items-center justify-center gap-6 md:justify-start"
+                        className="flex flex-wrap items-center justify-center gap-3 md:justify-start"
                     >
-                        <SocialIcon
-                            href="https://github.com/mkamrul9"
-                            icon={<FolderGit2 />}
-                            ariaLabel="GitHub"
-                        />
-                        <SocialIcon
+                        <SocialLink href="https://github.com/mkamrul9" label="GitHub" icon={<SiGithub size={14} />} />
+                        <SocialLink
                             href="https://www.linkedin.com/in/md-kamrul-islam9"
-                            icon={<Briefcase />}
-                            ariaLabel="LinkedIn"
+                            label="LinkedIn"
+                            icon={<FaLinkedinIn size={14} />}
                         />
-                        <SocialIcon
+                        <SocialLink
                             href="https://leetcode.com/u/Kamrul19/"
-                            icon={<Code />}
-                            ariaLabel="LeetCode"
+                            label="LeetCode"
+                            icon={<SiLeetcode size={14} />}
                         />
-                        <SocialIcon
+                        <SocialLink
                             href="https://www.facebook.com/kamrul.islam.648172/"
-                            icon={<Users />}
-                            ariaLabel="Facebook"
+                            label="Facebook"
+                            icon={<FaFacebookF size={14} />}
                         />
                     </motion.div>
+
                 </motion.div>
 
                 <motion.div
@@ -132,7 +131,7 @@ export default function Hero() {
                     <motion.div
                         animate={{ y: [0, -20, 0] }}
                         transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-                        className="relative h-72 w-72 overflow-hidden rounded-full border-8 border-zinc-800 shadow-2xl md:h-96 md:w-96"
+                        className="relative h-72 w-72 overflow-hidden rounded-full border-8 border-violet-400/20 shadow-2xl md:h-96 md:w-96"
                     >
                         <Image
                             src="/profilepic.jpeg"
@@ -149,31 +148,24 @@ export default function Hero() {
     );
 }
 
-function SocialIcon({
+function SocialLink({
     href,
+    label,
     icon,
-    ariaLabel,
 }: {
     href: string;
+    label: string;
     icon: ReactNode;
-    ariaLabel: string;
 }) {
     return (
-        <motion.a
-            whileHover={{
-                scale: 1.2,
-                rotate: 5,
-                backgroundColor: "#2563eb",
-                color: "#09090b",
-            }}
-            whileTap={{ scale: 0.9 }}
+        <a
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={ariaLabel}
-            className="rounded-full border border-zinc-700 bg-zinc-900 p-4 text-zinc-300 shadow-lg transition-colors duration-300"
+            className="inline-flex items-center gap-2 rounded-full border border-violet-400/30 bg-zinc-900 px-3 py-1.5 text-xs font-semibold text-violet-200 transition-colors hover:border-violet-300 hover:bg-violet-400/15"
         >
             {icon}
-        </motion.a>
+            {label}
+        </a>
     );
 }

@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { SiCodeforces, SiGithub, SiLeetcode, SiNpm } from "react-icons/si";
-import { FaLinkedinIn } from "react-icons/fa6";
+import { FaFacebookF, FaLinkedinIn } from "react-icons/fa6";
 import { Mail, Phone } from "lucide-react";
 
 export default function Footer() {
@@ -13,6 +13,11 @@ export default function Footer() {
             label: "LinkedIn",
             href: "https://www.linkedin.com/in/md-kamrul-islam9",
             icon: FaLinkedinIn,
+        },
+        {
+            label: "Facebook",
+            href: "https://www.facebook.com/kamrul.islam.648172/",
+            icon: FaFacebookF,
         },
         { label: "LeetCode", href: "https://leetcode.com/u/Kamrul19/", icon: SiLeetcode },
         {
@@ -29,7 +34,7 @@ export default function Footer() {
 
     return (
         <footer className="relative overflow-hidden border-t border-zinc-800 bg-zinc-950 py-10">
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(168,85,247,0.2),transparent_45%)]" />
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(192,132,252,0.2),transparent_45%)]" />
             <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col items-center gap-5 text-zinc-400">
                     <div className="text-xl font-bold tracking-wider text-violet-400">KI.</div>

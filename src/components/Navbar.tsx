@@ -1,22 +1,69 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { motion } from "framer-motion";
+
+const NAV_LINKS = [
+    { name: "Home", href: "#home" },
+    { name: "About", href: "#about" },
+    { name: "Skills", href: "#skills" },
+    { name: "Projects", href: "#projects" },
+    { name: "Experience", href: "#experience" },
+    { name: "Contact", href: "#contact" },
+];
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const [active, setActive] = useState("#home");
 
-    const navLinks = [
-        { name: "Home", href: "#home" },
-        { name: "About", href: "#about" },
-        { name: "Skills", href: "#skills" },
-        { name: "Projects", href: "#projects" },
-        { name: "Experience", href: "#experience" },
-        { name: "Contact", href: "#contact" },
-    ];
+    useEffect(() => {
+        const sectionIds = NAV_LINKS.map((link) => link.href.slice(1));
+        const sections = sectionIds
+            .map((id) => document.getElementById(id))
+            .filter((el): el is HTMLElement => el !== null);
+
+        const syncFromHash = () => {
+            if (window.location.hash) {
+                setActive(window.location.hash);
+            }
+        };
+
+        syncFromHash();
+        window.addEventListener("hashchange", syncFromHash);
+
+        if (!sections.length) {
+            return () => window.removeEventListener("hashchange", syncFromHash);
+        }
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                const visibleEntries = entries.filter((entry) => entry.isIntersecting);
+                if (!visibleEntries.length) {
+                    return;
+                }
+
+                const topVisible = visibleEntries.sort(
+                    (a, b) => b.intersectionRatio - a.intersectionRatio,
+                )[0];
+                setActive(`#${topVisible.target.id}`);
+            },
+            {
+                root: null,
+                rootMargin: "-30% 0px -55% 0px",
+                threshold: [0.2, 0.35, 0.5, 0.7],
+            },
+        );
+
+        sections.forEach((section) => observer.observe(section));
+
+        return () => {
+            sections.forEach((section) => observer.unobserve(section));
+            observer.disconnect();
+            window.removeEventListener("hashchange", syncFromHash);
+        };
+    }, []);
 
     return (
         <nav className="fixed top-0 z-50 w-full border-b border-zinc-800/90 bg-zinc-950/80 shadow-sm backdrop-blur-md">
@@ -25,30 +72,22 @@ export default function Navbar() {
                 <div className="flex h-16 items-center justify-between">
                     <motion.div
                         whileHover={{ scale: 1.04 }}
-                        className="relative shrink-0 rounded-full border border-violet-400/30 bg-zinc-900 px-4 py-1 text-2xl font-bold text-violet-400"
+                        className="relative shrink-0 rounded-full border border-violet-400/35 bg-transparent px-4 py-1 text-2xl font-bold text-violet-300"
                     >
                         KI.
                     </motion.div>
 
                     <div className="hidden items-center gap-2 rounded-full border border-zinc-800 bg-zinc-900/90 p-1 md:flex">
-                        {navLinks.map((link) => (
+                        {NAV_LINKS.map((link) => (
                             <motion.div key={link.name} whileHover={{ y: -1 }}>
                                 <Link
                                     href={link.href}
                                     onClick={() => setActive(link.href)}
-                                    className={`relative rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
-                                        active === link.href
-                                            ? "text-zinc-950"
-                                            : "text-zinc-300 hover:text-violet-300"
-                                    }`}
+                                    className={`relative rounded-full border px-4 py-2 text-sm font-semibold transition-colors ${active === link.href
+                                        ? "border-violet-400/55 bg-violet-400/12 text-violet-200"
+                                        : "border-transparent text-zinc-300 hover:border-violet-400/30 hover:text-violet-300"
+                                        }`}
                                 >
-                                    {active === link.href && (
-                                        <motion.span
-                                            layoutId="nav-pill"
-                                            className="absolute inset-0 -z-10 rounded-full bg-violet-400"
-                                            transition={{ type: "spring", stiffness: 350, damping: 30 }}
-                                        />
-                                    )}
                                     {link.name}
                                 </Link>
                             </motion.div>
@@ -74,7 +113,7 @@ export default function Navbar() {
                     className="border-b border-zinc-800 bg-zinc-950 pb-4 md:hidden"
                 >
                     <div className="flex flex-col items-center space-y-1 px-2 pt-2 pb-3 sm:px-3">
-                        {navLinks.map((link) => (
+                        {NAV_LINKS.map((link) => (
                             <Link
                                 key={link.name}
                                 href={link.href}
@@ -82,7 +121,10 @@ export default function Navbar() {
                                     setActive(link.href);
                                     setIsOpen(false);
                                 }}
-                                className="block px-3 py-2 text-lg font-medium text-zinc-300 hover:text-violet-300"
+                                className={`block rounded-md px-3 py-2 text-lg font-medium transition-colors ${active === link.href
+                                    ? "text-violet-300"
+                                    : "text-zinc-300 hover:text-violet-300"
+                                    }`}
                             >
                                 {link.name}
                             </Link>
