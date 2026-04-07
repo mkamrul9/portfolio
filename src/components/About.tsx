@@ -3,17 +3,17 @@ import { BookOpen, Code, Coffee, Sprout } from "lucide-react";
 
 export default function About() {
     return (
-        <section id="about" className="bg-white py-20">
+        <section id="about" className="bg-zinc-900 py-20">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="mb-16 text-center">
-                    <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
-                        About <span className="text-blue-600">Me</span>
+                    <h2 className="text-3xl font-extrabold text-zinc-100 sm:text-4xl">
+                        About <span className="text-cyan-400">Me</span>
                     </h2>
-                    <div className="mx-auto mt-2 h-1 w-24 rounded-full bg-blue-600"></div>
+                    <div className="mx-auto mt-2 h-1 w-24 rounded-full bg-cyan-400"></div>
                 </div>
 
                 <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
-                    <div className="space-y-6 text-lg leading-relaxed text-gray-600">
+                    <div className="space-y-6 text-lg leading-relaxed text-zinc-300">
                         <p>
                             Hello! My programming journey started with a deep curiosity
                             about how things work on the web. Today, I am an
@@ -40,22 +40,22 @@ export default function About() {
 
                     <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                         <InfoCard
-                            icon={<BookOpen className="text-blue-600" size={32} />}
+                            icon={<BookOpen className="text-cyan-400" size={32} />}
                             title="Education"
                             desc="B.Sc in ECE, RUET (4th Year, 8th Semester)"
                         />
                         <InfoCard
-                            icon={<Code className="text-blue-600" size={32} />}
+                            icon={<Code className="text-cyan-400" size={32} />}
                             title="Focus"
                             desc="Full Stack Web Development & System Design"
                         />
                         <InfoCard
-                            icon={<Sprout className="text-blue-600" size={32} />}
+                            icon={<Sprout className="text-cyan-400" size={32} />}
                             title="Hobbies"
                             desc="Rooftop Gardening & Plant Care"
                         />
                         <InfoCard
-                            icon={<Coffee className="text-blue-600" size={32} />}
+                            icon={<Coffee className="text-cyan-400" size={32} />}
                             title="Interests"
                             desc="Football & Open Source Contribution"
                         />
@@ -76,12 +76,12 @@ function InfoCard({
     desc: string;
 }) {
     return (
-        <div className="group rounded-2xl border border-gray-100 bg-gray-50 p-6 transition-all hover:border-blue-100 hover:shadow-lg">
+        <div className="group rounded-2xl border border-zinc-800 bg-zinc-950 p-6 transition-all hover:border-cyan-500/40 hover:shadow-lg hover:shadow-cyan-500/10">
             <div className="origin-left mb-4 transition-transform duration-300 group-hover:scale-110">
                 {icon}
             </div>
-            <h3 className="mb-2 text-xl font-bold text-gray-900">{title}</h3>
-            <p className="text-gray-600">{desc}</p>
+            <h3 className="mb-2 text-xl font-bold text-zinc-100">{title}</h3>
+            <p className="text-zinc-400">{desc}</p>
         </div>
     );
 }

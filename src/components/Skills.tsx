@@ -44,7 +44,7 @@ export default function Skills() {
     return (
         <section
             id="skills"
-            className="overflow-hidden border-t border-gray-200 bg-gray-50 py-24"
+            className="overflow-hidden border-t border-zinc-800 bg-zinc-950 py-24"
         >
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <motion.div
@@ -54,13 +54,13 @@ export default function Skills() {
                     transition={{ duration: 0.6 }}
                     className="mb-20 text-center"
                 >
-                    <h2 className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl">
+                    <h2 className="text-4xl font-extrabold tracking-tight text-zinc-100 sm:text-5xl">
                         Technical{" "}
-                        <span className="bg-linear-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
+                        <span className="bg-linear-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
                             Arsenal
                         </span>
                     </h2>
-                    <div className="mx-auto mt-4 h-1.5 w-24 rounded-full bg-blue-600"></div>
+                    <div className="mx-auto mt-4 h-1.5 w-24 rounded-full bg-cyan-400"></div>
                 </motion.div>
 
                 <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
@@ -72,9 +72,9 @@ export default function Skills() {
                             viewport={{ once: true, margin: "-50px" }}
                             transition={{ duration: 0.6, delay: index * 0.2 }}
                             whileHover={{ y: -10 }}
-                            className="rounded-3xl border border-gray-100 bg-white p-8 shadow-lg shadow-gray-200/50"
+                            className="rounded-3xl border border-zinc-800 bg-zinc-900 p-8 shadow-lg shadow-black/40"
                         >
-                            <h3 className="mb-8 border-b border-gray-100 pb-4 text-center text-2xl font-bold text-gray-900">
+                            <h3 className="mb-8 border-b border-zinc-800 pb-4 text-center text-2xl font-bold text-zinc-100">
                                 {category.title}
                             </h3>
                             <div className="flex flex-wrap justify-center gap-3">
@@ -84,11 +84,11 @@ export default function Skills() {
                                         whileHover={{
                                             scale: 1.15,
                                             rotate: [-2, 2, -2, 0],
-                                            backgroundColor: "#2563eb",
-                                            color: "#ffffff",
+                                            backgroundColor: "#22d3ee",
+                                            color: "#09090b",
                                         }}
                                         transition={{ type: "spring", stiffness: 300 }}
-                                        className="cursor-pointer rounded-xl border border-blue-100 bg-blue-50 px-5 py-2.5 text-sm font-bold text-blue-700 shadow-sm"
+                                        className="cursor-pointer rounded-xl border border-cyan-500/30 bg-zinc-800 px-5 py-2.5 text-sm font-bold text-cyan-300 shadow-sm"
                                     >
                                         {skill}
                                     </motion.span>
